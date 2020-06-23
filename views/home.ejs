@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+
+</head>
+<body>
+
+    <div class="columns is-mobile is-centered">
+         <div class="column is-half">
+    <form action="/output" method="post">
+
+<div class="field">
+  <label class="label">url</label>
+  <div class="control">
+    <input class="input" type="text" class=""  name="url">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Position of the table</label>
+  <div class="control">
+    <input class="input" type="number" class="" name="position" >
+  </div>
+</div>
+<div class="is-centered">
+        <button type="submit" class="button is-link is-blue ">scrape</button>
+    
+</div>
+    </form>
+</div>
+</div>
+
+</body>
+</html>

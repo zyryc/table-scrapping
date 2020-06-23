@@ -1,17 +1,40 @@
-'use strict';
 const express = require('express')
 const app = express()
 const port = 3000
 const tabletojson = require('tabletojson').Tabletojson;
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.set('view engine', 'ejs');
+
 app.get('/', function (req, res) {
+  res.render('home');
+  
+});
+
+app.post('/output', function(req, res) {
+
+  var url = req.body.url;
+  var position = req.body.position;
+
   tabletojson.convertUrl(
-    'https://web.archive.org/web/20081011014831/http://www.cpi.com.cn/cpi-eng/code/beijing.asp',
+    url,
     function(tablesAsJson) {
-        console.log(tablesAsJson[17]);
-        res.send(tablesAsJson[17])
+        console.log(tablesAsJson[position]);
+        res.send(tablesAsJson[position]);
     }
 );
-  
-})
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+  // res.send('home');
+});
+
+app.get('/generate', function (req, res) {  
+ 
+});
+
+
+app.listen(port, () => console.log(`app listening on port ${port}!`))
  
